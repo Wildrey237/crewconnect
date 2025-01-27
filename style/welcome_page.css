@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+.container {
+    text-align: center;
+    max-width: 400px;
+}
+
+.logo img {
+    width: 400px;
+    margin-bottom: 0px;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin: 0px 0;
+    letter-spacing: 1px;
+    color: #fff ;    
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    font-weight: 300;
+}
+
+.joinus {
+    margin: 30px;
+    /*text-decoration: underline;*/
+}
+
+.logsign {
+    margin-top: 30px;
+}
+
+.logsign {
+    margin: 10px 0;
+}
+
+.logsign {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacement entre les éléments */
+}
+
+.separator {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 10px; /* Pour éviter qu'il soit trop proche des boutons */
+}
+
+.btn-create, .btn-login {
+    display: inline-block;
+    width: 200px; /* Ajuste la largeur des boutons */
+    padding: 15px 0; /* Élargit verticalement */
+    text-align: center; /* Centre le texte à l'intérieur */
+    color: #000000;
+    background-color: #1da1f2;
+    text-decoration: none;
+    border-radius: 50px;
+    border: solid #1da1f2;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-create:hover, .btn-login:hover {
+    background-color: #000000;
+    color: #1da1f2;
+    border: 2px solid;
+}
+
+.btn-login {
+    color: #1da1f2;
+    background-color: transparent;
+    border: solid #1da1f2;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-create:hover {
+    background-color: #000;
+    color: #8801e9;
+    border: solid #8801e9 ;
+}
+
+.btn-login:hover {
+    background-color: #8801e9;
+    color: #000;
+    border: solid #8801e9;
+}
+
+/* #1da1f2*/
+/*#097ec7*/

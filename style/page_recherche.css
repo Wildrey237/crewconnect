@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Barre latérale */
+.sidebar {
+    background-color: #f5f5f5;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 15px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    font-weight: bold;
+}
+
+.sidebar .post-button:hover {
+    transform: scale(1.05);
+  }
+
+.sidebar .post-button:active {
+    background: #ff77d9;
+    transform: scale(1);
+}
+
+.sidebar .post-button {
+    margin: 20px;
+    background-color: #ffd700;
+    color: #000;
+    border-radius: 500px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    }
+
+.sidebar .post-button :hover{
+    margin: 20px;
+    background-color: #ffd700;
+    color: #000;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40%; /* Plus de place pour la biographie et les messages */
+    width: 1500px;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.logo img {
+    max-height: 80px;
+}
+
+.main .search-bar {
+    margin: 0 10px 0px;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 15px; 
+    width: 500px;
+    justify-content: center;
+    text-align: left;
+    margin-right: 100px;
+    
+}
+
+.sidebar .titre {
+    font-size: x-large;
+}
+.announcement {
+    flex: 1;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* Empiler les annonces verticalement */
+    align-items: flex-start; /* Alignement des annonces à gauche */
+    text-align: left;
+    font-size: 1rem;
+    color: #000000;
+    padding: 20px;
+    width: 1050px;
+    overflow-y: auto;
+    gap: 10px; /* Espacement entre les annonces */
+    border: 10px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image:
+        linear-gradient(white, white),
+        linear-gradient(45deg, #ffdd57, #ff77d9);   
+    transition: transform 0.5s ease-out;
+}
+.announcement::-webkit-scrollbar{
+    display: none;
+}
+
+.annonce_container {
+    display: flex;
+    border: 1px solid black;
+    height: 70px;
+    border-radius: 15px;
+    flex-direction: row; /* Aligner les éléments horizontalement dans chaque annonce */
+    align-items: center; /* Centrer verticalement */
+    padding: 10px;
+    width: 98%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prenom_user_annonce {
+    font-weight: bolder;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    width: 10%;
+    color: #000;
+    text-align: center;
+}
+
+.description_user_annonce {
+    font-weight: 500;
+    flex: 1; /* Prend tout l'espace restant */
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    gap: 50px;
+}
+
+.voir_annonce {
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.voir_annonce:hover {
+    background-color: #006de1;
+    transform: scale(1.02);
+}
+
+.voir_annonce:active {
+    background-color: #0060c7;
+    transform: scale(0.98);
+}

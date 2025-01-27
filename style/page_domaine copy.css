@@ -1,0 +1,90 @@
+/* Styles pour améliorer les checkboxes */
+body {    
+    font-family: Arial, sans-serif;    
+    background-image: url(../images/CC\ Fond\ NOIR\ Resized\,\ you\ guessed\ it\,\ YET\ AGAIN!.jpg);
+    background-position: left;    
+    background-size: cover;    
+    margin: 0;    
+    display: flex;    
+    justify-content: center;    
+    align-items: center;    
+    height: 100vh;
+}
+
+.messages {
+    text-align: right;
+    margin-right: 10px;
+    
+}
+
+form {    
+    background: #1a1a1a;    
+    padding: 20px;    border-radius: 8px;    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
+    max-width: 400px;    width: 100%;
+}
+
+h2 {    
+    text-align: center;    
+    margin-bottom: 20px;    
+    color: #1da1f2;
+}
+
+.checkbox-container {    
+    display: flex;    
+    flex-wrap: wrap;    
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.checkbox-wrapper-16 {    
+    margin-bottom: 15px;    
+    flex: 0 0 48%; 
+/* Ajuste la largeur des checkboxes pour qu'elles soient sur deux colonnes */}
+     
+.checkbox-wrapper {    
+    display: inline-flex;    
+    align-items: center;    
+    cursor: pointer;    
+    width: 100%;
+}
+    .checkbox-input {    
+    display: none; /* Cache l'input natif */
+    }
+    
+    .checkbox-tile {    
+    display: flex;    
+    align-items: center;    
+    justify-content: center;    
+    border: 2px solid #ddd;    
+    border-radius: 8px;    
+    padding: 10px 15px;    
+    transition: all 0.3s ease;    
+    font-size: 16px;    color: #555;    
+    background-color: #fff;    
+    width: 100%;
+}
+
+.checkbox-input:checked + .checkbox-tile {    
+border-color: #8801e9;    
+color: #8801e9;
+}
+    
+.checkbox-icon {    
+margin-right: 10px;
+}
+        
+.submit-btn {    
+margin-top: 20px;    
+width: 100%;    
+padding: 10px;    
+font-size: 16px;    
+border: none;    
+border-radius: 5px;    
+background-color: #1da1f2;    
+color: #fff;    
+cursor: pointer;    
+transition: background 0.3s ease;}
+
+.submit-btn:hover {    
+background-color: #8801e9;}

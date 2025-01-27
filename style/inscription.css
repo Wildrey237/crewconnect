@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url(../images/CC\ Fond\ NOIR\ Resized\ ;3.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font: small-caps bold 24px/1 sans-serif;
+}
+
+.inscription-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.inscription-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.inscription-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1da1f2;
+}
+
+.inscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #9b9b9b;
+}
+
+input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #2a2a2a;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #1da1f2;
+  box-shadow: 0 0 5px #1da1f2;
+}
+
+.btn-submit {
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background:  #1da1f2;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #8801e9;
+  transform: scale(1.01);
+}
+
+.btn-submit:active {
+  background: #8801e9;
+  transform: scale(0.98);
+}
