@@ -1,5 +1,6 @@
 <?php
-function recuperer_data($nom, $pass) {
+function recuperer_data($nom, $pass)
+{
     // Connexion à la base de données
     $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
     // Préparation de la requête
@@ -10,8 +11,7 @@ function recuperer_data($nom, $pass) {
         ':password' => $pass
     ));
     // Retourner le résultat (ou false si aucun résultat)
-    return $requete->fetch();
-    ;
+    return $requete->fetch();;
 }
 
 function recuperer_userdata($id)
@@ -22,13 +22,14 @@ function recuperer_userdata($id)
     $requete = $db->prepare("SELECT nom, prenom, biographie, age FROM user WHERE user_id = :id");
     // Exécution avec les paramètres fournis
     $requete->execute(array(
-        ':id'=>$id,
+        ':id' => $id,
     ));
     // Retourner le résultat (ou false si aucun résultat)
     return $requete->fetch();
 }
 
-function recuperer_annonce($annonce) {
+function recuperer_annonce($annonce)
+{
     // Connexion à la base de données
     $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
     // Préparation de la requête
@@ -38,26 +39,27 @@ function recuperer_annonce($annonce) {
         ':annonce' => $annonce
     ));
     // Retourner le résultat (ou false si aucun résultat)
-    return $requete->fetchAll();
-    ;
+    return $requete->fetchAll();;
 }
 
-function recuperer_id($nom, $pass) {
-        // Connexion à la base de données
-        $db = new PDO("mysql:host=localhost;dbname=crewconnect", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+function recuperer_id($nom, $pass)
+{
+    // Connexion à la base de données
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect", "root", "");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $requete = $db->prepare("SELECT user_id FROM user WHERE nom = :nom AND mdp = :mdp");
+    $requete = $db->prepare("SELECT user_id FROM user WHERE nom = :nom AND mdp = :mdp");
 
-        $requete->execute([
-            ':nom' => $nom,
-            ':mdp' => $pass, 
-        ]);
+    $requete->execute([
+        ':nom' => $nom,
+        ':mdp' => $pass,
+    ]);
 
 
-        return $requete->fetch();
+    return $requete->fetch();
 
 }
+
 function recuperer_domain($id)
 {
     // Connexion à la base de données
@@ -66,7 +68,7 @@ function recuperer_domain($id)
     $requete = $db->prepare("SELECT nom FROM domain WHERE user_id = :id");
     // Exécution avec les paramètres fournis
     $requete->execute(array(
-        ':id'=>$id,
+        ':id' => $id,
     ));
     // Retourner le résultat (ou false si aucun résultat)
     return $requete->fetch();
@@ -80,10 +82,22 @@ function recuperer_category($id)
     $requete = $db->prepare("SELECT nom FROM category WHERE user_id = :id");
     // Exécution avec les paramètres fournis
     $requete->execute(array(
-        ':id'=>$id,
+        ':id' => $id,
     ));
     // Retourner le résultat (ou false si aucun résultat)
     return $requete->fetch();
+}
+
+//recuperer les annonces par utilisateur
+function recuperer_annonce_user($id)
+{
+
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+    $requete = $db->prepare("SELECT announce_id, texte, date FROM announce WHERE user_user_id = :id");
+    $requete->execute(array(
+        ':id' => $id,
+    ));
+    return $requete->fetchAll();
 }
 
 ?>

@@ -93,5 +93,24 @@ function all_announce()
     return $annonce;
 }
 
+function modify_announce($id, $texte)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("UPDATE announce SET texte = :texte WHERE announce_id = :id");
+    $stmt->bindParam(':texte', $texte);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+function delete_announce($id)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("DELETE FROM announce WHERE announce_id = :id");
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
 
 ?>
