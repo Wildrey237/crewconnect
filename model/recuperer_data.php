@@ -60,20 +60,6 @@ function recuperer_id($nom, $pass)
 
 }
 
-function recuperer_domain($id)
-{
-    // Connexion à la base de données
-    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
-    // Préparation de la requête
-    $requete = $db->prepare("SELECT nom FROM domain WHERE user_id = :id");
-    // Exécution avec les paramètres fournis
-    $requete->execute(array(
-        ':id' => $id,
-    ));
-    // Retourner le résultat (ou false si aucun résultat)
-    return $requete->fetch();
-}
-
 function recuperer_category($id)
 {
     // Connexion à la base de données
@@ -100,4 +86,18 @@ function recuperer_annonce_user($id)
     return $requete->fetchAll();
 }
 
-?>
+//chere les annonces par mot clé
+function recuperer_annonce_mot_cle($mot_cle)
+{
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+    $sql = "SELECT announce.announce_id, announce.texte, announce.user_user_id, user.nom as nom
+            FROM announce 
+            JOIN user ON announce.user_user_id = user.user_id 
+            WHERE announce.texte LIKE :mot_cle";
+    $requete = $db->prepare($sql);
+    $requete->execute(array(
+        ':mot_cle' => '%' . $mot_cle . '%',
+    ));
+    return $requete->fetchAll();
+}
+

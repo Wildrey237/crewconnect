@@ -1,3 +1,7 @@
+<?php
+include_once("../controler/verify_session.php");
+verify_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,13 @@
 <div class="main">
     <div class="logo">
         <img src="../images/CC Fond BLANC_modifié.jpg" alt="Logo CrewConnect">
+    </div>
+    <!--    recherche par mot clès-->
+    <div class="search">
+        <form action="../controler/display_annonce.php" method="POST">
+            <input type="text" name="nom" placeholder="Rechercher par mot clé">
+            <button type="submit">Rechercher</button>
+        </form>
     </div>
     <div class="announcement">
         <?php if (empty($announce)) {
@@ -29,9 +40,9 @@
     </div>
     <div class="biography">
         <div class="biography-content">
-            <h2><?php echo $user['prenom'], ' ', $user['nom'] ?></h2>
-            <p><?php echo $user['age'], ' ans' ?></p>
-            <p><?php echo $category ?></p>
+            <h2><?php echo $_SESSION['firstname'], ' ', $_SESSION['name'] ?></h2>
+            <p><?php echo $_SESSION['age'], ' ans' ?></p>
+            <p><?php echo $_SESSION['category'] ?></p>
         </div>
     </div>
     <div class="messages">

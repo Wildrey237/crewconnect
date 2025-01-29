@@ -38,13 +38,14 @@
     </div>
 
     <div class="modify-announcement" style="visibility: <?= $visilibility_form ?>">
+        <--! ici pour appeler la fonction de modification d'annonce -->
         <form action="" method="GET">
             <?php
             if (isset($_GET['list-announce'])) {
                 list($announce_id, $texte) = explode(',', $_GET['list-announce']);
             }
             ?>
-            <textarea class="text_annonce" name="form-announce" placeholder="<?= isset($texte) ? htmlspecialchars($texte) : '' ?>" required></textarea>
+            <textarea class="text_annonce" name="form-announce" required><?= isset($texte) ? htmlspecialchars($texte) : '' ?></textarea>
             <div class="announcement-options">
                 <button type="submit" class="post-announcement">Poster</button>
             </div>

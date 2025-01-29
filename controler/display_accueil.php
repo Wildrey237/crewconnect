@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $user_id = $_SESSION["user_id"];
     $user = recuperer_userdata($user_id);
+    $_SESSION['category'] = $category;
 
 }
 require '../view/page_accueil.php';

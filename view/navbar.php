@@ -1,8 +1,8 @@
 <div class="sidebar">
-    <a href="page_accueil.php" style="text-decoration:none">
+    <a href="../view/page_accueil.php" style="text-decoration:none">
         <button class="titre">CREWCONNECT</button>
     </a>
-    <a href="page_accueil.php" style="text-decoration:none">
+    <a href="../view/page_accueil.php" style="text-decoration:none">
         <button>🏠 Accueil</button>
     </a>
     <a href="../view/add_annonce.php" style="text-decoration:none">

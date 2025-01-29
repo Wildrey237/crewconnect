@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     insertdonnee($name, $firstname, $age, $pass);
     $user_id = recuperer_id($name, $pass)['user_id'];
     $_SESSION['user_id'] = $user_id;
+    $_SESSION['name'] = $name;
+    $_SESSION['firstname'] = $firstname;
+    $_SESSION['age'] = $age;
 
 }
 

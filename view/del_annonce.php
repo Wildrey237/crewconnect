@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +13,21 @@
     <div class="logo">
         <img src="../images/CC Fond BLANC_modifié.jpg" alt="Logo CrewConnect">
     </div>
-
-    <div class="modify-announcement" style="visibility: hidden">
-        <form action="" method="POST">
-            <textarea class="text_annonce" name="announce" placeholder="Faire une annonce..." required></textarea>
-            <div class="announcement-options">
-                <button type="submit" class="post-announcement">Poster</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="modify-announcement" style="visibility: hidden">
-        <form action="../controler/display_annonce.php" method="POST">
-            <textarea class="text_annonce" name="announce" placeholder="Faire une annonce..." required></textarea>
-            <div class="announcement-options">
-                <button type="submit" class="post-announcement">Poster</button>
-            </div>
+    <?php
+    require '../model/recuperer_data.php';
+    $announce = recuperer_annonce_user($_SESSION["user_id"]);
+    ?>
+    <div class="del-announcement">
+<!--         ici pour appeler la fonction de suppression d'annonce-->
+        <form action="del_annonce.php" method="GET">
+            <select name="list-announce" id="list-announce">
+                <?php
+                foreach ($announce as $key => $value) {
+                    echo '<option value="', $value['announce_id'], ',', htmlspecialchars($value['texte']), '">', htmlspecialchars($value['texte']), '</option>';
+                }
+                ?>
+            </select>
+            <button type="submit" class="post-announcement">Supprimer</button>
         </form>
     </div>
 </div>
