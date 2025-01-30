@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+ <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +39,7 @@
 
     <div class="modify-announcement" style="visibility: <?= $visilibility_form ?>">
         <--! ici pour appeler la fonction de modification d'annonce -->
-        <form action="" method="GET">
+        <form action="../controler/modify_annonce.php" method="GET">
             <?php
             if (isset($_GET['list-announce'])) {
                 list($announce_id, $texte) = explode(',', $_GET['list-announce']);

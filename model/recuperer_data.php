@@ -60,19 +60,19 @@ function recuperer_id($nom, $pass)
 
 }
 
-function recuperer_category($id)
-{
-    // Connexion à la base de données
-    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
-    // Préparation de la requête
-    $requete = $db->prepare("SELECT nom FROM category WHERE user_id = :id");
-    // Exécution avec les paramètres fournis
-    $requete->execute(array(
-        ':id' => $id,
-    ));
-    // Retourner le résultat (ou false si aucun résultat)
-    return $requete->fetch();
-}
+//function recuperer_category($id)
+//{
+//    // Connexion à la base de données
+//    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+//    // Préparation de la requête
+//    $requete = $db->prepare("SELECT nom FROM category WHERE user_id = :id");
+//    // Exécution avec les paramètres fournis
+//    $requete->execute(array(
+//        ':id' => $id,
+//    ));
+//    // Retourner le résultat (ou false si aucun résultat)
+//    return $requete->fetch();
+//}
 
 //recuperer les annonces par utilisateur
 function recuperer_annonce_user($id)

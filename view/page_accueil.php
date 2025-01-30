@@ -31,7 +31,7 @@ verify_session();
                 echo '<div class="announce-container">';
                 echo '<h1 class="prenom_user_annonce">', $value['nom'], '</h1>';
                 echo '<h3 class="description_user_annonce">', $value['texte'], '</h3>';
-                echo '<button class="voir_annonce">voir l\'annonce</button>';
+                echo '<button class="btn_voir_annonce">voir l\'annonce</button>';
                 echo '</div>';
             }
 

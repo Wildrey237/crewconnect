@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../style/inscription.css">
 </head>
 <body>
+    <a id="close-popup" href="index.php"></a>
     <div class="inscription-container">
         <div class="inscription-card">
+            <a href="index.php" class="close-button"></a>
             <h1 class="inscription-title">Inscription</h1>
             <form class="inscription-form" action="../controler/display_inscription.php" method="POST">
                 <div class="form-group">
