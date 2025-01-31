@@ -111,6 +111,3 @@ function delete_announce($id)
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 }
-
-
-?>

@@ -1,4 +1,7 @@
- <?php session_start(); ?>
+<?php
+include_once("../controler/verify_session.php");
+verify_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrewConnect</title>
     <link rel="stylesheet" href="../style/page_accueil.css">
+    <script>
+        function confirmModification() {
+            return confirm("Êtes-vous sûr de vouloir modifier cette annonce ?");
+        }
+    </script>
 </head>
 <body>
 <?php include_once("navbar.php"); ?>
@@ -38,14 +46,15 @@
     </div>
 
     <div class="modify-announcement" style="visibility: <?= $visilibility_form ?>">
-        <--! ici pour appeler la fonction de modification d'annonce -->
-        <form action="../controler/modify_annonce.php" method="GET">
+        <form action="../controler/modify_annonce.php" method="GET" onsubmit="return confirmModification()">
             <?php
             if (isset($_GET['list-announce'])) {
                 list($announce_id, $texte) = explode(',', $_GET['list-announce']);
             }
             ?>
-            <textarea class="text_annonce" name="form-announce" required><?= isset($texte) ? htmlspecialchars($texte) : '' ?></textarea>
+            <textarea class="text_annonce" name="form-announce"
+                      required><?= isset($texte) ? htmlspecialchars($texte) : '' ?></textarea>
+            <input type="hidden" name="id_announce" value="<?= $announce_id ?>">
             <div class="announcement-options">
                 <button type="submit" class="post-announcement">Poster</button>
             </div>

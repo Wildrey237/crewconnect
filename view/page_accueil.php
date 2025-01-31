@@ -24,19 +24,23 @@ verify_session();
         </form>
     </div>
     <div class="announcement">
-        <?php if (empty($announce)) {
-            echo '';
-        } else {
-            foreach ($announce as $key => $value) {
-                echo '<div class="announce-container">';
-                echo '<h1 class="prenom_user_annonce">', $value['nom'], '</h1>';
-                echo '<h3 class="description_user_annonce">', $value['texte'], '</h3>';
-                echo '<button class="btn_voir_annonce">voir l\'annonce</button>';
-                echo '</div>';
-            }
+        <form name="handle_announce" action="../controler/handle_announce.php" method="POST">
+            <?php if (empty($announce)) {
+                echo '';
+            } else {
+                foreach ($announce as $key => $value) {
+                    //input hidden pour récupérer les id des annonces
+                    echo '<input type="hidden" name="id_annonce" value="', $value['id_annonce'], '">';
+                    echo '<div class="announce-container">';
+                    echo '<h1 class="prenom_user_annonce">', $value['nom'], '</h1>';
+                    echo '<h3 class="description_user_annonce">', $value['texte'], '</h3>';
+                    echo '<button class="btn_voir_annonce">voir l\'annonce</button>';
+                    echo '</div>';
+                }
 
-        }
-        ?>
+            }
+            ?>
+        </form>
     </div>
     <div class="biography">
         <div class="biography-content">
