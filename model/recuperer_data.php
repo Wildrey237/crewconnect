@@ -1,18 +1,5 @@
 <?php
-function recuperer_data($nom, $pass)
-{
-    // Connexion à la base de données
-    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
-    // Préparation de la requête
-    $requete = $db->prepare("SELECT nom, mdp FROM user WHERE nom = :name AND mdp = :password");
-    // Exécution avec les paramètres fournis
-    $requete->execute(array(
-        ':name' => $nom,
-        ':password' => $pass
-    ));
-    // Retourner le résultat (ou false si aucun résultat)
-    return $requete->fetch();;
-}
+
 
 function recuperer_userdata($id)
 {
@@ -42,37 +29,32 @@ function recuperer_annonce($annonce)
     return $requete->fetchAll();;
 }
 
-function recuperer_id($nom, $pass)
+function recuperer_id($mail)
 {
     // Connexion à la base de données
     $db = new PDO("mysql:host=localhost;dbname=crewconnect", "root", "");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $requete = $db->prepare("SELECT user_id FROM user WHERE nom = :nom AND mdp = :mdp");
-
-    $requete->execute([
-        ':nom' => $nom,
-        ':mdp' => $pass,
-    ]);
-
-
+    // Préparation de la requête
+    $requete = $db->prepare("SELECT user_id FROM user WHERE mail = :mail");
+    // Exécution avec les paramètres fournis
+    $requete->execute(array(
+        ':mail' => $mail,
+    ));
+    // Retourner le résultat (ou false si aucun résultat)
     return $requete->fetch();
-
 }
 
-//function recuperer_category($id)
-//{
-//    // Connexion à la base de données
-//    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
-//    // Préparation de la requête
-//    $requete = $db->prepare("SELECT nom FROM category WHERE user_id = :id");
-//    // Exécution avec les paramètres fournis
-//    $requete->execute(array(
-//        ':id' => $id,
-//    ));
-//    // Retourner le résultat (ou false si aucun résultat)
-//    return $requete->fetch();
-//}
+//fonction de connexion
+function user_connexion($mail, $password)
+{
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+    $requete = $db->prepare("SELECT user_id, nom, prenom, age FROM user WHERE mail = :mail AND mdp = :password");
+    $requete->execute(array(
+        ':mail' => $mail,
+        ':password' => $password,
+    ));
+    return $requete->fetch();
+}
 
 //recuperer les annonces par utilisateur
 function recuperer_annonce_user($id)

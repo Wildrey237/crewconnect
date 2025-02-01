@@ -1,19 +1,28 @@
 <?php
 
-function insertdonnee($name, $firstname, $age, $pass)
+function insertdonnee($name, $firstname, $age, $pass, $mail)
 {
+
 
     $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Verifier s'il n'existe pas déjà un utilisateur avec le même mail
+    $stmt = $pdo->prepare("SELECT mail FROM user WHERE mail = :mail");
+    $stmt->bindParam(':mail', $mail);
+    $stmt->execute();
+    $mail_exist = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($mail_exist)
+        return false;
+
 
     // Préparer et exécuter l'insertion
-    $stmt = $pdo->prepare("INSERT INTO user (nom, prenom, age, mdp) VALUES (:name, :firstname, :age, :password)");
+    $stmt = $pdo->prepare("INSERT INTO user (nom, prenom, age, mdp, mail) VALUES (:name, :firstname, :age, :password, :mail)");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':firstname', $firstname);
     $stmt->bindParam(':age', $age);
     $stmt->bindParam(':password', $pass);
+    $stmt->bindParam(':mail', $mail);
     $stmt->execute();
-
 }
 
 

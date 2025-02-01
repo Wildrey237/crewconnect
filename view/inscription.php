@@ -12,7 +12,14 @@
         <div class="inscription-card">
             <a href="index.php" class="close-button"></a>
             <h1 class="inscription-title">Inscription</h1>
+            <?php if (isset($error_message)): ?>
+                <p class="error-message"><?php echo $error_message; ?></p>
+            <?php endif; ?>
             <form class="inscription-form" action="../controler/display_inscription.php" method="POST">
+                <div class="form-group">
+                    <label for="Mail">Adresse mail</label>
+                    <input type="email" id="mail" name="mail" placeholder="Adresse mail" required>
+                </div>
                 <div class="form-group">
                     <label for="name">Nom</label>
                     <input type="text" id="name" name="name" placeholder="Nom" required>

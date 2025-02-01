@@ -12,10 +12,13 @@
             <div class="connexion-card">
                 <a href="index.php" class="close-button"></a>
                 <h1 class="connexion-title">Connexion</h1>
+                <?php if (isset($error_message)): ?>
+                    <p class="error-message"><?php echo $error_message; ?></p>
+                <?php endif; ?>
                     <form class="connexion-form" action="../controler/display_connexion.php" method="POST">
                         <div class="form-group">
-                            <label for="Username">Nom </label>
-                            <input type="text" id="name" name="name" placeholder="Nom" required>
+                            <label for="Mail">Adresse mail</label>
+                            <input type="email" id="mail" name="mail" placeholder="Adresse mail" required>
                         </div>
                         <div class="form-group">
                             <label for="Password">Mot de passe</label>
