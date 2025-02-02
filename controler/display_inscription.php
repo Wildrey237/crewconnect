@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $age = trim($_POST['age']);
     $pass = trim($_POST['password']);
     $mail = trim($_POST['mail']);
-
-    if(insertdonnee($name, $firstname, $age, $pass, $mail)){
+    $insert = insertdonnee($name, $firstname, $age, $pass, $mail);
+    if($insert == 0){
         $user_id = recuperer_id($mail)['user_id'];
         $_SESSION['user_id'] = $user_id;
         $_SESSION['name'] = $name;
@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require '../view/formulaire1.php';
     } else {
         $error_message = "Erreur lors de l'inscription, le mail est déjà utilisé";
+        echo $error_message;
         require '../view/inscription.php';
     }
 }

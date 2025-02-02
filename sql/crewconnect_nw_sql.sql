@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user`
     `biographie` VARCHAR(255) NULL,
     `mdp`        VARCHAR(255) NULL,
     `mail`       VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`user_id`),
-    UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) VISIBLE
+    PRIMARY KEY (`user_id`)
+#     UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) VISIBLE
 );
 
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user_has_category`
         REFERENCES `crewconnect`.`user` (`user_id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
-    CONSTRAINT `fk_user_has_category_category1`
+#     CONSTRAINT `fk_user_has_category_category1`
         FOREIGN KEY (`category_category_id`, `category_domain_domain_id`)
             REFERENCES `crewconnect`.`category` (`category_id`, `domain_domain_id`)
             ON DELETE NO ACTION

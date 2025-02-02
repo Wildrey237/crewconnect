@@ -12,17 +12,19 @@ function insertdonnee($name, $firstname, $age, $pass, $mail)
     $stmt->execute();
     $mail_exist = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($mail_exist)
-        return false;
+        return 1;
+    else {
 
-
-    // Préparer et exécuter l'insertion
-    $stmt = $pdo->prepare("INSERT INTO user (nom, prenom, age, mdp, mail) VALUES (:name, :firstname, :age, :password, :mail)");
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':firstname', $firstname);
-    $stmt->bindParam(':age', $age);
-    $stmt->bindParam(':password', $pass);
-    $stmt->bindParam(':mail', $mail);
-    $stmt->execute();
+        // Préparer et exécuter l'insertion
+        $stmt = $pdo->prepare("INSERT INTO user (nom, prenom, age, mdp, mail) VALUES (:name, :firstname, :age, :password, :mail)");
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':firstname', $firstname);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':password', $pass);
+        $stmt->bindParam(':mail', $mail);
+        $stmt->execute();
+        return 0;
+    }
 }
 
 
