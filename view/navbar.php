@@ -3,16 +3,40 @@
         <button class="titre">CREWCONNECT</button>
     </a>
     <a href="../view/page_accueil.php" style="text-decoration:none">
-        <button>🏠 Accueil</button>
+        <button class="accueil">🏠 Accueil
+        <div class="hoverEffect">
+        <div></div>
+        </button>
     </a>
     <a href="../view/add_annonce.php" style="text-decoration:none">
-        <button>🔍 Creer une annonce</button>
+        <button class="create">➕ Creer une annonce
+        <div class="hoverEffect">
+        <div></div>
+        </button>
     </a>
     <a href="../view/modify_annonce.php" style="text-decoration:none">
-        <button>🔍 Modifier une annonce</button>
+        <button class="edit">✏️ Modifier une annonce
+        <div class="hoverEffect">
+        <div></div>
+        </button>
     </a>
     <a href="../view/del_annonce.php" style="text-decoration:none">
-        <button>🔍 Supprimer une annonce</button>
+        <button class="delete">❌ Supprimer une annonce
+        <div class="hoverEffect">
+        <div></div>
+        </button>
     </a>
+    <a href="#" style="text-decoration:none">
+        <button class="settings">⚙️ Paramètres
+        <div class="hoverEffect">
+        <div></div>
+        <div class="dropdown-content" id="dropdownMenu">
+            <a href="#" id="darkModeToggle">Enable Dark Mode</a>
+            <!-- Add more settings here -->
+            </div>
+        </button>
+    </a>
+
+
     <!--        <div class="post-button">Poster</div>-->
 </div>
