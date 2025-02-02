@@ -41,7 +41,7 @@ function insertdonnee($name, $firstname, $age, $pass, $mail)
 //    $stmt->execute();
 //}
 
-function insertannonce($announce)
+function insertannonce($announce,$description,$type)
 {
 
     $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
@@ -51,8 +51,10 @@ function insertannonce($announce)
     $date = date('Y-m-d H:i:s');
 
     // Préparer et exécuter l'insertion
-    $stmt = $pdo->prepare("INSERT INTO announce (texte, user_user_id, date) VALUES (:announce, :user_id, :date)");
+    $stmt = $pdo->prepare("INSERT INTO announce (texte, description, type, user_user_id, date) VALUES (:announce, :description, :type, :user_id, :date)");
     $stmt->bindParam(':announce', $announce);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':type', $type);
     $stmt->bindParam(':user_id', $user_id);
     $stmt->bindParam(':date', $date);
     $stmt->execute();

@@ -30,8 +30,7 @@ verify_session();
     <div class="announcements">
         <?php foreach ($announcements as $announce): ?>
             <div class="announcement">
-                <p>ID: <?= htmlspecialchars($announce['announce_id']) ?></p>
-                <p>Texte: <?= htmlspecialchars($announce['texte']) ?></p>
+                <p>Annonce : <?= htmlspecialchars($announce['texte']) ?></p>
                 <form action="../controler/del_annonce.php" method="POST" onsubmit="return confirmDeletion()">
                     <input type="hidden" name="announce_id" value="<?= htmlspecialchars($announce['announce_id']) ?>">
                     <button type="submit" class="delete-button">Supprimer</button>

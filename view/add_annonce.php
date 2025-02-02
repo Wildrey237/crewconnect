@@ -32,22 +32,22 @@
             <!-- Titre de l'annonce -->
             <div class="form-group">
               <label for="titre">Titre de l'annonce</label>
-              <input type="text" id="titre" name="titre" placeholder="Entrez le titre de votre annonce" required>
+              <input type="text" id="texte" name="texte" placeholder="Entrez le titre de votre annonce" required>
             </div>
 
             <!-- Description -->
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea id="description" name="announce" placeholder="Décrivez votre annonce en détail" rows="5" required></textarea>
+              <textarea id="description" name="description" placeholder="Décrivez votre annonce en détail" rows="5" required></textarea>
             </div>
 
             <!-- Type d'annonce -->
             <div class="form-group">
               <label>Type d'annonce</label>
               <div class="radio-group">
-                <input type="radio" id="duo" name="type" value="duo" checked>
+                <input type="radio" id="Duo" name="type" value="Duo" checked>
                 <label for="duo">Duo</label>
-                <input type="radio" id="groupe" name="type" value="groupe">
+                <input type="radio" id="Groupe" name="type" value="Groupe">
                 <label for="groupe">Groupe</label>
                 <!-- D'autres options pourront être ajoutées ici -->
               </div>
@@ -102,7 +102,7 @@
   <!-- Script pour la mise à jour en temps réel de la prévisualisation -->
   <script>
     // Récupération des éléments du formulaire et de la preview
-    const titreInput = document.getElementById('titre');
+    const titreInput = document.getElementById('texte');
     const descriptionInput = document.getElementById('description');
     const typeInputs = document.getElementsByName('type');
 

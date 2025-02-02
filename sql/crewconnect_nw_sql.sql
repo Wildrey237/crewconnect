@@ -21,8 +21,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user`
     `biographie` VARCHAR(255) NULL,
     `mdp`        VARCHAR(255) NULL,
     `mail`       VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`user_id`),
-    UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) VISIBLE
+    PRIMARY KEY (`user_id`)
 );
 
 
@@ -34,9 +33,9 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`announce`
     `announce_id`  INT          NOT NULL AUTO_INCREMENT,
     `texte`        VARCHAR(255) NULL,
     `date`         DATE         NULL,
-    `type`         INT          NULL,
+    `type`         TEXT          NULL,
     `user_user_id` INT          NOT NULL,
-    `profil_voulu` VARCHAR(255) NULL,
+    `description` VARCHAR(255) NULL,
     PRIMARY KEY (`announce_id`, `user_user_id`),
     FOREIGN KEY (`user_user_id`)
         REFERENCES `crewconnect`.`user` (`user_id`)

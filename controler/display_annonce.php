@@ -8,10 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $announce = recuperer_annonce_mot_cle($_POST['nom']);
 
     } else {
-        $announce = trim($_POST['announce']);
+        $announce = trim($_POST['texte']);
+        $description = trim($_POST['description']);
+        $type = trim($_POST['type']);
         $user_id = $_SESSION["user_id"];
         $user = recuperer_userdata($user_id);
-        insertannonce($announce);
+        insertannonce($announce,$description,$type);
         $announce = all_announce();
     }
 
