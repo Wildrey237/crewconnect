@@ -41,14 +41,14 @@ function insertdonnee($name, $firstname, $age, $pass, $mail)
 //    $stmt->execute();
 //}
 
-function insertannonce($announce,$description,$type)
+function insertannonce($announce, $description, $type, $date)
 {
 
     $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $user_id = $_SESSION["user_id"];
     // date d'aujourd'hui
-    $date = date('Y-m-d H:i:s');
+//    $date = date('Y-m-d H:i:s');
 
     // Préparer et exécuter l'insertion
     $stmt = $pdo->prepare("INSERT INTO announce (texte, description, type, user_user_id, date) VALUES (:announce, :description, :type, :user_id, :date)");
@@ -100,7 +100,7 @@ function all_announce()
     $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // list annonce and user
-    $stmt = $pdo->prepare("SELECT texte, nom FROM announce JOIN user ON user.user_id = announce.user_user_id");
+    $stmt = $pdo->prepare("SELECT announce_id, texte, nom FROM announce JOIN user ON user.user_id = announce.user_user_id");
     $stmt->execute();
     $annonce = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $annonce;
@@ -123,4 +123,56 @@ function delete_announce($id)
     $stmt = $pdo->prepare("DELETE FROM announce WHERE announce_id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->execute();
+}
+
+function add_announce_to_favorites($user_id, $announce_id)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // check if user already likes the article !!
+    $stmt = $pdo->prepare("SELECT * FROM favorite WHERE user_user_id = :user_id AND announce_announce_id = :announce_id");
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $value = $stmt->execute();
+    if ($value) {
+        $stmt = $pdo->prepare("INSERT INTO favorite (user_user_id, announce_announce_id) VALUES (:user_id, :announce_id)");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':announce_id', $announce_id);
+        $stmt->execute();
+    } else {//dislike
+        $stmt = $pdo->prepare("DELETE FROM favorite WHERE user_user_id = :user_id AND announce_announce_id = :announce_id");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':announce_id', $announce_id);
+        $stmt->execute();
+    }
+}
+
+function add_like($user_id, $announce_id)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("INSERT INTO `like` (announce_user_user_id, announce_announce_id) VALUES (:user_id, :announce_id)");
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+}
+
+function remove_like($user_id, $announce_id)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("DELETE FROM `like` WHERE announce_user_user_id = :user_id AND announce_announce_id = :announce_id");
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+}
+
+function user_likes_announce($user_id, $announce_id)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $stmt = $pdo->prepare("SELECT * FROM `like` WHERE announce_user_user_id = :user_id AND announce_announce_id = :announce_id");
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':announce_id', $announce_id);
+    $stmt->execute();
+    return $stmt->fetch() !== false;
 }

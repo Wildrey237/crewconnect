@@ -72,7 +72,7 @@ function recuperer_annonce_user($id)
 function recuperer_annonce_mot_cle($mot_cle)
 {
     $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
-    $sql = "SELECT announce.announce_id, announce.texte, announce.user_user_id, user.nom as nom
+    $sql = "SELECT announce_id, announce.announce_id, announce.texte, announce.user_user_id, user.nom as nom
             FROM announce 
             JOIN user ON announce.user_user_id = user.user_id 
             WHERE announce.texte LIKE :mot_cle";
@@ -82,4 +82,3 @@ function recuperer_annonce_mot_cle($mot_cle)
     ));
     return $requete->fetchAll();
 }
-

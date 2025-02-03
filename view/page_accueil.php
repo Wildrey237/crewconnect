@@ -1,6 +1,7 @@
 <?php
 include_once("../controler/verify_session.php");
 verify_session();
+include_once '../model/inserer_data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,17 +32,20 @@ verify_session();
         </div>
     </div>
     <div class="announcement">
-        <?php if (empty($announce)) {
-            echo '';
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] != 'POST')
+            $announce = all_announce();
+
+        if (empty($announce)) {
+            echo '<p>Aucune annonce trouvée.</p>';
         } else {
             foreach ($announce as $key => $value) {
                 echo '<div class="announce-container">';
                 echo '<h1 class="prenom_user_annonce">', $value['nom'], '</h1>';
                 echo '<h3 class="description_user_annonce">', $value['texte'], '</h3>';
-                echo '<a href="../view/page_voir_annonce.php" style="text-decoration:none"> <button class="btn_voir_annonce">voir l\'annonce</button> </a>';
+                echo '<a href="../view/page_voir_annonce.php?id=', $value['announce_id'], '" style="text-decoration:none"> <button class="btn_voir_annonce">voir l\'annonce</button> </a>';
                 echo '</div>';
             }
-
         }
         ?>
     </div>
