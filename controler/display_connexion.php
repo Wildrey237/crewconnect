@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pass = trim($_POST['password'] ?? '');
     if(empty($mail) || empty($pass)){
         $error_message = "Veuillez remplir tous les champs";
+        require '../view/connexion.php';
     } else {
         // Récupération des données utilisateur
         $user = user_connexion($mail, $pass);
