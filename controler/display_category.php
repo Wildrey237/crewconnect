@@ -28,9 +28,9 @@ require '../view/sous_domaine/cinema_sous_domaine.php';
 
         require '../view/sous_domaine/gaming_sous_domaine.php';
 
-    } else if ($domain === 'Lecture') {
+    } else if ($domain === 'Littérature') {
 
-        require '../view/sous_domaine/lecture_sous_domaine.php';
+        require '../view/sous_domaine/littérature_sous_domaine.php';
 
     } else {
 

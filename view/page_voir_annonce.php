@@ -10,6 +10,7 @@ verify_session();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrewConnect - Voir Annonce</title>
+    <link rel="stylesheet" href="../style/navbar.css">
     <link rel="stylesheet" href="../style/page_voir_annonce.css">
 </head>
 <body>
@@ -30,9 +31,9 @@ verify_session();
         <?php
 
         if (user_likes_announce($_SESSION['user_id'], $_GET['id'])) {
-            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-danger">Retirer des favoris</a>';
+            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-danger">Retirer des favoris 💔</a>';
         } else {
-            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-primary">Ajouter aux favoris</a>';
+            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-primary">Ajouter en favoris ❤️</a>';
         }
 
         ?>
@@ -40,6 +41,8 @@ verify_session();
         $data = get_annonce_by_id($_GET['id']);
         ?>
         <h1 class="popup-title"><?php echo $data['texte'] ?></h1>
+
+        <h3>Profil souhaité 💯</h3>
         <p class="popup-description">
             <?php echo $data['description'] ?>
         </p>
@@ -47,7 +50,7 @@ verify_session();
         <div class="popup-actions">
             <!-- Bouton Accepter et refuser -->
             <a href="accepter_annonce.php" class="action-button accept-button">&#10004;</a>
-            <a href="refuser_annonce.php" class="action-button refuse-button">&#10006;</a>
+            <a href="../controler/display_annonce.php" class="action-button refuse-button">&#10006;</a>
         </div>
     </div>
 

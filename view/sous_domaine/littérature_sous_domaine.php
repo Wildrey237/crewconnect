@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrewConnect - Sport</title>
+  <title>CrewConnect - Littérature</title>
   <!-- Inclusion de la navbar pour avoir la même navigation sur toutes les pages -->
   <link rel="stylesheet" href="../style/navbar.css">
   <!-- Utilisation du CSS de la page d'accueil pour le fond interactif -->
@@ -44,54 +44,54 @@
   <!-- Overlay popup affichant le formulaire de domaine -->
   <div class="overlay">
     <div class="popup-form">
-    <h2>Dans quoi excellez vous dans le <?php  echo $domain?> ? </h2>
+    <h2>Dans quoi excellez vous dans la <?php  echo $domain?> ? </h2>
         <form action="../controler/display_accueil.php" method="post">
         <div class="checkbox-wrapper-16-container">
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" id ="category" name="category" value="Sport">
+                    <input class="checkbox-input" type="radio" id ="category" name="category" value="Littérature">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Athlète professionnel</span>
+                        <span class="checkbox-label">Écrivain</span>
                     </span>
                 </label>
             </div>
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Sport" nombre-colonnes="1">
+                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Littérature" nombre-colonnes="1">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Coach sportif</span>
+                        <span class="checkbox-label">Éditeur</span>
                     </span>
                 </label>
             </div>
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Sport">
+                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Littérature">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Arbitre / Juge</span>
+                        <span class="checkbox-label">Bibliothécaire</span>
                     </span>
                 </label>
             </div>
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Sport">
+                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Littérature">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Préparateur physique</span>
+                        <span class="checkbox-label">Correcteur</span>
                     </span>
                 </label>
             </div>
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Sport">
+                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Littérature">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Kinésithérapeute du sport</span>
+                        <span class="checkbox-label">Traducteur littéraire</span>
                     </span>
                 </label>
             </div>
             <div class="checkbox-wrapper-16">
                 <label class="checkbox-wrapper">
-                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Sport">
+                    <input class="checkbox-input" type="radio" name="category" id ="category" value="Littérature">
                     <span class="checkbox-tile">
-                        <span class="checkbox-label">Journaliste sportif</span>
+                        <span class="checkbox-label">Critique littéraire</span>
                     </span>
                 </label>
             </div>

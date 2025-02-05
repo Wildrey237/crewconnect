@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../style/connexion.css">
 </head>
 <body>
-    <a id="close-popup" href="index.php"></a>
+    <a id="close-popup" href="../index.php"></a>
         <div class="connexion-container">
             <div class="connexion-card">
-                <a href="index.php" class="close-button"></a>
+                <a href="../index.php" class="close-button"></a>
                 <h1 class="connexion-title">Connexion</h1>
                 <?php if (isset($error_message)): ?>
                     <p class="error-message"><?php echo $error_message; ?></p>

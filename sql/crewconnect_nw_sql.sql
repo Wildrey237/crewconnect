@@ -156,8 +156,8 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`Like`
 
 INSERT INTO `domain` (`domain_id`, `nom`)
 VALUES (1, 'Musique'),
-       (2, 'CinÃ©ma'),
+       (2, 'Cinéma'),
        (3, 'Sport'),
-       (4, 'Lecture'),
+       (4, 'Littérature'),
        (5, 'Informatique'),
        (6, 'Gaming');

@@ -1,64 +1,78 @@
-/* Styles pour améliorer les checkboxes */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    /*background-image: url(../images/CC\ Fond\ NOIR\ Resized\,\ you\ guessed\ it\,\ YET\ AGAIN!.jpg);
-    background-size: cover;
-    background-position: center;*/
-    margin: 0;
+/* page_domaine.css */
+
+/* L'overlay recouvre toute la fenêtre avec un fond semi-transparent */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: rgb(245, 245, 245);
-}
-
-form {
+    z-index: 3000;
+  }
+  
+  /* Style de la popup qui contient le formulaire de domaine */
+  .popup-form {
     padding: 20px;
     border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 700px;
+    max-height: 460px;
     width: 100%;
-    height: 440px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    align-items:normal;
     border: 10px solid transparent; /* Bordure transparente */
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
+    /* Dégradé pour la bordure extérieure */
     background-image: 
-        linear-gradient(white, white), /* Intérieur */
-        linear-gradient(45deg, #FFDD57, #FF77D9); /* Dégradé extérieur */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-}
-
-h2 {
+      linear-gradient(white, white), /* Intérieur */
+      linear-gradient(45deg, #FFDD57, #FF77D9); /* Bordure */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .popup-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #000;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 25px;
-}
-
-.checkbox-wrapper-16 {
+  }
+  
+  /* Wrapper pour les checkboxes dans la popup */
+  .checkbox-wrapper-16-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  
+  .checkbox-wrapper-16 {
     margin: 0;
-}
-
-.checkbox-wrapper {
+  }
+  
+  .checkbox-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     text-align: center;
-}
-
-.checkbox-input {
-    display: none; /* Cache l'input natif */
-}
-
-.checkbox-tile {
+  }
+  
+  .checkbox-input {
+    display: none;
+  }
+  
+  .checkbox-tile {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,32 +85,30 @@ h2 {
     color: #000;
     text-align: center;
     font-weight: bolder;
-}
-
-.checkbox-input:checked + .checkbox-tile {
+    background-color: #fff;
+  }
+  
+  .checkbox-input:checked + .checkbox-tile {
     border-color: #1da1f2;
-}
-
-.checkbox-icon {
+  }
+  
+  .checkbox-icon {
     margin-right: 10px;
-}
-
-.submit-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1da1f2;
-    color: #fff;
-    cursor: pointer;
+  }
+  
+  .submit-btn {    
+    width: 20%;    
+    padding: 10px;    
+    font-size: 16px;    
+    border: none;    
+    border-radius: 5px;    
+    background-color: #1da1f2;    
+    color: #fff;    
+    cursor: pointer;    
     transition: background 0.3s ease;
-    width: 120px;
-}
-
-.submit-btn:hover {
+  }
+  
+  .submit-btn:hover {
     background-color: #1da1f2;
 }
     
@@ -183,6 +195,35 @@ h2 {
         gap: 20px; /* Espacement entre les items */
         flex-grow: 1;
         justify-content: center;
-        margin-bottom: 100px;
         padding-bottom: 20px;
     }
+
+    .sous_domaine_box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 316%;
+    }
+    .styled-input {
+        position: relative;
+        cursor: text;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0 16px;
+        height: 35px;
+        background-color: #fff;
+        border: 1px solid #d6d6e7;
+        border-radius: 3px;
+        color: rgb(35, 38, 59);
+        box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
+        overflow: hidden;
+        transition: all 100ms ease-in-out;
+        border-radius: 10px;
+        width: 320px;
+
+      }
+      
+      .styled-input:focus { 
+        box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
+      }
+  

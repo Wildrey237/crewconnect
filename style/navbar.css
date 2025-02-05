@@ -1,0 +1,48 @@
+/* navbar.css */
+
+/* Barre de navigation (Sidebar) */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar .nav-link {
+  text-decoration: none;
+}
+
+.sidebar button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 15px;
+  text-align: left;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar button:hover {
+  background: linear-gradient(90deg, #fce58971, #ffa4e54d);
+  color: #009dff;
+  font-weight: bold;
+}
+
+.sidebar .titre {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #1da1f2;
+  margin-bottom: 20px;
+  cursor: default;
+}

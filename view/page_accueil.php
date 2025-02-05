@@ -9,6 +9,7 @@ include_once '../model/inserer_data.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrewConnect</title>
+    <link rel="stylesheet" href="../style/navbar.css">
     <link rel="stylesheet" href="../style/page_accueil.css">
 </head>
 <body>
@@ -43,7 +44,7 @@ include_once '../model/inserer_data.php';
                 echo '<div class="announce-container">';
                 echo '<h1 class="prenom_user_annonce">', $value['nom'], '</h1>';
                 echo '<h3 class="description_user_annonce">', $value['texte'], '</h3>';
-                echo '<a href="../view/page_voir_annonce.php?id=', $value['announce_id'], '" style="text-decoration:none"> <button class="btn_voir_annonce">voir l\'annonce</button> </a>';
+                echo '<a href="../view/page_voir_annonce.php?id=', $value['announce_id'], '" style="text-decoration:none"> <button class="btn_voir_annonce">Consulter</button> </a>';
                 echo '</div>';
             }
         }

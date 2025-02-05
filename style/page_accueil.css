@@ -1,501 +1,251 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Barre latérale */
-.sidebar {
-    background-color: #f5f5f5;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    border-right: 1px solid #ddd;
-}
-
-.titre {
-  font-family: Trebuchet MS;
-}
-
-.create {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
-  width: 275px;
-}
-
-.create:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
-
-.create:active {
-  transform: scale(0.97);
-}
-
-.hoverEffect {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.hoverEffect div {
-  background: rgb(222, 0, 75);
-  background: linear-gradient(
-    90deg,
-    rgba(222, 0, 75, 1) 0%,
-    rgba(191, 70, 255, 1) 49%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border-radius: 40rem;
-  width: 20rem;
-  height: 15rem;
-  transition: 0.4s;
-  filter: blur(20px);
-  animation: effect infinite 5s linear;
-  opacity: 0.3;
-}
-
-.create:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.edit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
+  height: 100vh;
   overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
-  width: 275px;
-}
-
-.edit:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
-
-.edit:active {
-  transform: scale(0.97);
-}
-
-.edit:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.delete {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
   position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
-  width: 275px;
+  background-color: #fbfbfb;
 }
 
-.delete:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
+/* La sidebar est définie dans navbar.css */
 
-.delete:active {
-  transform: scale(0.97);
-}
-
-.delete:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.settings {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  margin-top: 320px;
-  width: 200px;
-}
-
-.settings:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
-
-.settings:active {
-  transform: scale(0.97);
-}
-
-.settings:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.accueil {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  cursor: pointer;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  margin-top: 30px;
-  width: 275px;
-}
-
-.accueil:hover {
-  background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
-}
-
-.accueil:active {
-  transform: scale(0.97);
-}
-
-.accueil:hover .hoverEffect div {
-  width: 8rem;
-  height: 8rem;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.sidebar h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.sidebar button {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    padding: 15px;
-    border: none;
-    background: none;
-    text-align: left;
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-.sidebar button:hover {
-    font-weight: bold;
-}
-
+/* Zone principale */
 .main {
-    flex: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-right: 19%; /* Plus de place pour la biographie et les messages */
+  margin-left: 250px; /* Espace occupé par la sidebar */
+  margin-right: 19%;  /* Espace pour biography et messages (conservé) */
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Logo en haut */
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .logo img {
-    max-height: 90px;
+  max-height: 90px;
 }
 
-
-/* Biographie et Messages */
-.biography {
-    position: absolute;
-    top: -5%;
-    right: 2.15%; /* Déplacement vers la droite */
-    width: 50%;
-    height: 25%;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    transform: translateX(100%); /* Initialement invisible */
-    transition: transform 0.5s ease-out;
+/* Conteneur pour le contenu centré */
+.center-content {
+  max-width: 900px; /* Vous pouvez ajuster cette valeur */
+  margin: auto;
 }
 
-.biography-content {
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border-top-left-radius: 0px;
-    background: linear-gradient(90deg, #fee375cd, #fd7ed9);
-    overflow: hidden;
+/* Zone de recherche */
+.search__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.messages {
-    position: absolute;
-    bottom: 0;
-    right: 0%; /* Déplacement vers la droite */
-    top: 38%;
-    width: 50%;
-    height: 61%;
-    border: 11px solid transparent;
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
-    background-image:
-        linear-gradient(white, white),
-        linear-gradient(50deg, #fee375cd, #fd7ed9);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transform: translateX(100%); /* Initialement invisible */
-    transition: transform 0.5s ease-out;
+/* Recherche */
+.search {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-.messages-content {
-    background: white;
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 20px;
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #303030;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 20em;
+  transition: all ease-in-out .5s;
+  margin-right: -2rem;
 }
 
-.sidebar .titre {
-    font-size: x-large;
+.search__input:hover, .search__input:focus {
+  box-shadow: 0 0 0.5em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: #f4f2f2;
+  width: 25em;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #3e3e3e;
+}
+
+.search__input:focus + .search__button {
+  background-color: #f4f2f2;
+}
+
+.search__button {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: .1em;
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+/* Annonces */
+.announcement {
+  flex: 1;
+  height: 435px;
+  margin: 20px auto ;
+  border: 3px solid #f7f7f7;
+  font-size: 1rem;
+  color: #000;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  max-width: 850px;
+  width: 100%;
+  transition: scrollbar-color 0.3s ease-in-out;
 }
 
 .announcement {
-    flex: 1;
-    height: 800px;
-    margin: 20px;
-    border: 3px solid #e8e8e8;
-    font-size: 1rem;
-    color: #000;
-    padding: 20px;
-    overflow-y: auto;
-    border-radius: 10px;
-    background-color: #e8e8e8;
+  animation: hideScrollbar 3s forwards;
 }
 
+@keyframes hideScrollbar {
+  0% {
+    scrollbar-color: #ccc #e8e8e8; /* Pour Firefox */
+  }
+  100% {
+    scrollbar-color: transparent transparent; /* Pour Firefox */
+  }
+}
+
+.announcement:hover {
+  animation: showScrollbar 0.3s forwards;
+}
+
+@keyframes showScrollbar {
+  0% {
+    scrollbar-color: transparent transparent; /* Pour Firefox */
+  }
+  100% {
+    scrollbar-color: #ccc #e8e8e8; /* Pour Firefox */
+  }
+}
 
 .announce-container {
-    flex: 1;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Centrer verticalement */
-    border: 1px  black;
-    height: 70px;
-    width: 97%;
-    border-radius: 25px;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.announce-container:hover {
+  transform: translateY(-2px);
 }
 
 .prenom_user_annonce {
-    display: flex;
-    align-items: center;
-    color: #000;
-    font-weight: bolder;
-    margin-left: 15px;
+  margin-left: 15px;
+  font-weight: bolder;
+  color: #000;
 }
 
 .description_user_annonce {
-    display: flex;
-    flex: 1;
-    color: #373737;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  flex: 1;
+  color: #373737;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn_voir_annonce {
-    color: #000;
-    justify-items: center;
-    border-radius: 15px;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    margin-left: auto;
+  margin-left: auto;
+  padding: 8px 16px;
+  border-radius: 20px;
+  width: 130px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px  #ddd;
+  background: linear-gradient(90deg, #fce58974, #ffa4e580);
+  /*background-color: #f7f7f7;*/
+  transition: background 0.3s ease;
+  margin-right: 5px;
 }
 
-
-.search__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+.btn_voir_annonce:hover {
+  background-color: #e8e8e890;
+  transform: scale(1.015);
+  color: #303030;
 }
-/* From Uiverse.io by joe-watson-sbf */ 
-.search {
-    display: flex;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .search__input {
-    font-family: inherit;
-    font-size: inherit;
-    background-color: #f4f2f2;
-    border: none;
-    color: #303030;
-    padding: 0.7rem 1rem;
-    border-radius: 30px;
-    width: 20em;
-    transition: all ease-in-out .5s;
-    margin-right: -2rem;
-  }
-  
-  .search__input:hover, .search__input:focus {
-    box-shadow: 0 0 1em #00000013;
-    
-  }
-  
-  .search__input:focus {
-    outline: none;
-    background-color: #f4f2f2;
-    width: 25em;
-  }
-  
-  .search__input::-webkit-input-placeholder {
-    font-weight: 100;
-    color: #3e3e3e;
-  }
-  
-  .search__input:focus + .search__button {
-    background-color: #f4f2f2;
-  }
-  
-  .search__button {
-    border: none;
-    background-color: #f4f2f2;
-    margin-top: .1em;
-  }
 
-  .search__button:hover{
-    background-color: #f4f2f2;
-  }
-  
-  .search__button:hover {
-    cursor: pointer;
-  }
-  
-  .search__button:focus {
-    background-color: #f4f2f2;
-  }
-  
-  .search__icon {
-    height: 1.3em;
-    width: 1.3em;
-    fill: #b4b4b4;
-    margin-left: -10px;
-  }
+/* Biography et Messages restent inchangés */
+.biography {
+  position: absolute;
+  top: -5%;
+  right: 2.15%;
+  width: 50%;
+  height: 25%;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-out;
+}
+
+.biography-content {
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #fee375cd, #fd7ed9);
+  overflow: hidden;
+}
+
+.messages {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 38%;
+  width: 50%;
+  height: 61%;
+  border: 11px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image:
+      linear-gradient(white, white),
+      linear-gradient(50deg, #fee375cd, #fd7ed9);
+  border-top-left-radius: 20px;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-out;
+}
+
+.messages-content {
+  background: white;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+/* Reste des styles de recherche… */
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #b4b4b4;
+  margin-left: -10px;
+}

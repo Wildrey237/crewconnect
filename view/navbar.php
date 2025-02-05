@@ -1,42 +1,42 @@
+<!-- navbar.php -->
 <div class="sidebar">
-    <a href="../view/page_accueil.php" style="text-decoration:none">
-        <button class="titre">CREWCONNECT</button>
-    </a>
-    <a href="../view/page_accueil.php" style="text-decoration:none">
-        <button class="accueil">🏠 Accueil
-            <div class="hoverEffect">
-                <div></div>
-        </button>
-    </a>
-    <a href="../view/add_annonce.php" style="text-decoration:none">
-        <button class="create">➕ Creer une annonce
-            <div class="hoverEffect">
-                <div></div>
-        </button>
-    </a>
-    <a href="../view/modify_annonce.php" style="text-decoration:none">
-        <button class="edit">✏️ Modifier une annonce
-            <div class="hoverEffect">
-                <div></div>
-        </button>
-    </a>
-    <a href="../view/del_annonce.php" style="text-decoration:none">
-        <button class="delete">❌ Supprimer une annonce
-            <div class="hoverEffect">
-                <div></div>
-        </button>
-    </a>
-    <a href="#" style="text-decoration:none">
-        <button class="settings">⚙️ Paramètres
-            <div class="hoverEffect">
-                <div></div>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="#" id="darkModeToggle">Enable Dark Mode</a>
-                    <!-- Add more settings here -->
-                </div>
-        </button>
-    </a>
-
-
-    <!--        <div class="post-button">Poster</div>-->
+  <!-- Titre / Logo de la plateforme -->
+  <a href="../controler/display_annonce.php" class="nav-link">
+    <button class="titre">CREWCONNECT</button>
+  </a>
+  <!-- Lien Accueil -->
+  <a href="../controler/display_annonce.php" class="nav-link">
+    <button class="accueil">
+      <img src="https://img.icons8.com/material-outlined/24/000000/home.png" alt="Accueil">
+      Accueil
+    </button>
+  </a>
+  <!-- Lien Créer une annonce -->
+  <a href="../view/add_annonce.php" class="nav-link">
+    <button class="create">
+      <img src="https://img.icons8.com/material-outlined/24/000000/add--v1.png" alt="Créer">
+      Créer une annonce
+    </button>
+  </a>
+  <!-- Lien Modifier une annonce -->
+  <a href="../view/modify_annonce.php" class="nav-link">
+    <button class="edit">
+      <img src="https://img.icons8.com/material-outlined/24/000000/edit.png" alt="Modifier">
+      Modifier une annonce
+    </button>
+  </a>
+  <!-- Lien Supprimer une annonce -->
+  <a href="../view/del_annonce.php" class="nav-link">
+    <button class="delete">
+      <img src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png" alt="Supprimer">
+      Supprimer une annonce
+    </button>
+  </a>
+  <!-- Lien Paramètres -->
+  <a href="../index.php" class="nav-link">
+    <button class="settings">
+      <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Paramètres">
+      Se deconnecter
+    </button>
+  </a>
 </div>

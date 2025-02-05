@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../style/inscription.css">
 </head>
 <body>
-<a id="close-popup" href="index.php"></a>
+<a id="close-popup" href="../index.php"></a>
 <div class="inscription-container">
     <div class="inscription-card">
-        <a href="../view/index.php" class="close-button"></a>
+        <a href="../index.php" class="close-button"></a>
         <h1 class="inscription-title">Inscription</h1>
         <?php if (isset($error_message)): ?>
             <p class="error-message"><?php echo $error_message; ?></p>

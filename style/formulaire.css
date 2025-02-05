@@ -1,0 +1,151 @@
+/* formulaire.css */
+/* Overlay recouvrant toute la fenêtre */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+/* Popup form avec fond blanc et bordure dégradée */
+.popup-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 90%;
+    min-height: 500px;
+    border: 10px solid transparent; /* Pour le gradient */
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    /* Bordure dégradée */
+    background-image: 
+      linear-gradient(white, white),
+      linear-gradient(45deg, #FFDD57, #FF77D9);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Titres dans la popup */
+.popup-form h2 {
+    margin: 0 0 10px;
+    color: #000;
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.popup-form h4 {
+    margin: 10px 0 20px;
+    color: #333;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Conteneur pour les options (checkboxes) */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Chaque option (checkbox) */
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Masquer l'input natif */
+.checkbox-input {
+    display: none;
+}
+
+/* Style des cases agrandies */
+.checkbox-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    height: 260px; /* Augmenté pour plus d'espace */
+    width: 340px;  /* Augmenté pour plus d'espace */
+    background-color: #fff;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.checkbox-tile:hover {
+    border-color: #1da1f2;
+}
+
+.checkbox-input:checked + .checkbox-tile {
+    border-color: #1da1f2;
+}
+
+/* Style pour les icônes */
+.checkbox-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* Conteneur pour le bouton de validation */
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Bouton de validation */
+.submit-btn {
+    width: 50%;  /* Le bouton occupe 50% de la largeur du conteneur */
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1da1f2;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 0px;
+}
+
+.submit-btn:hover {
+    background-color: #1480b8;
+}
+
+.styled-input {
+    position: relative;
+    cursor: text;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 16px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #d6d6e7;
+    border-radius: 10px;
+    color: rgb(35, 38, 59);
+    box-shadow: inset 0 1px 4px rgba(119,122,175,0.3);
+    overflow: hidden;
+    transition: all 100ms ease-in-out;
+    width: 320px;
+}
+
+.styled-input:focus { 
+    box-shadow: 0 1px 0 0 rgba(35,38,59,0.05);
+}
