@@ -71,7 +71,7 @@ include_once '../model/recuperer_data.php';
             } else {
                 foreach ($conversations as $conversation) {
                     echo '<div class="conversation">';
-                    echo '<a href="send_message.php?id_user=' . $conversation['id_receveur'] . '">' . htmlspecialchars($conversation['nom']) . '</a>';
+                    echo '<a href="../view/send_message.php?id_user=' . $conversation['id_receveur'] . '">' . htmlspecialchars($conversation['nom']) . '</a>';
                     echo '</div>';
                 }
             }
