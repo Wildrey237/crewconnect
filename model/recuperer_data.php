@@ -92,3 +92,16 @@ function get_annonce_by_id($id)
     ));
     return $requete->fetch();
 }
+
+function get_annonce_liked_by_user($user_id)
+{
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+    $sql = "SELECT announce_id, texte, description, type, date 
+            FROM announce 
+            WHERE announce_id IN (SELECT announce_id FROM like WHERE user_user_id = :user_id)";
+    $requete = $db->prepare($sql);
+    $requete->execute(array(
+        ':user_id' => $user_id,
+    ));
+    return $requete->fetchAll();
+}
