@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`message`
     `content`      VARCHAR(255) NULL,
     `sent_date`    DATE         NULL,
     `user_user_id` INT          NOT NULL,
+    `id_receveur`  INT          NOT NULL,
     PRIMARY KEY (`message_id`, `user_user_id`),
     FOREIGN KEY (`user_user_id`)
         REFERENCES `crewconnect`.`user` (`user_id`)

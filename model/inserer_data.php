@@ -176,3 +176,14 @@ function user_likes_announce($user_id, $announce_id)
     $stmt->execute();
     return $stmt->fetch() !== false;
 }
+
+function insert_message($content, $user_id, $id_receveur)
+{
+    $pdo = new PDO("mysql:host=localhost;dbname=crewconnect;charset=utf8", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("INSERT INTO message (content, sent_date, user_user_id, id_receveur) VALUES (:content, NOW(), :user_id, :id_receveur)");
+    $stmt->bindParam(':content', $content);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':id_receveur', $id_receveur);
+    $stmt->execute();
+}

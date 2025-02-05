@@ -49,7 +49,7 @@ verify_session();
 
         <div class="popup-actions">
             <!-- Bouton Accepter et refuser -->
-            <a href="accepter_annonce.php" class="action-button accept-button">&#10004;</a>
+            <a href="../view/send_message.php?id_user=<?php echo $data['user_user_id']; ?>" class="action-button accept-button">&#10004;</a>
             <a href="../controler/display_annonce.php" class="action-button refuse-button">&#10006;</a>
         </div>
     </div>

@@ -2,6 +2,7 @@
 include_once("../controler/verify_session.php");
 verify_session();
 include_once '../model/inserer_data.php';
+include_once '../model/recuperer_data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,12 +56,26 @@ include_once '../model/inserer_data.php';
             <h2><?php echo $_SESSION['firstname'], ' ', $_SESSION['name'] ?></h2>
             <p><?php echo $_SESSION['age'], ' ans' ?></p>
             <p><?php echo $_SESSION['category'] ?></p>
+            <p><?php echo $_SESSION['user_id'] ?></p>
         </div>
     </div>
     <div class="messages">
         <div class="messages-content">
             <h2>Messages</h2>
-            <p>Section des messages (contenu ici).</p>
+            <?php
+            $user_id = $_SESSION['user_id'];
+            $conversations = get_conversations($user_id); // Function to get users with whom the current user has had a conversation
+
+            if (empty($conversations)) {
+                echo '<p>Aucune discussion trouvée.</p>';
+            } else {
+                foreach ($conversations as $conversation) {
+                    echo '<div class="conversation">';
+                    echo '<a href="send_message.php?id_user=' . $conversation['id_receveur'] . '">' . htmlspecialchars($conversation['nom']) . '</a>';
+                    echo '</div>';
+                }
+            }
+            ?>
         </div>
     </div>
 </div>
