@@ -82,3 +82,13 @@ function recuperer_annonce_mot_cle($mot_cle)
     ));
     return $requete->fetchAll();
 }
+
+function get_annonce_by_id($id)
+{
+    $db = new PDO("mysql:host=localhost;dbname=crewconnect;", "root", "");
+    $requete = $db->prepare("SELECT texte, description, type, date FROM announce WHERE announce_id = :id");
+    $requete->execute(array(
+        ':id' => $id,
+    ));
+    return $requete->fetch();
+}

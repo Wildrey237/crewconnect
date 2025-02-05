@@ -36,10 +36,12 @@ verify_session();
         }
 
         ?>
-
-        <h1 class="popup-title">Titre de l'annonce</h1>
+        <?php
+        $data = get_annonce_by_id($_GET['id']);
+        ?>
+        <h1 class="popup-title"><?php echo $data['texte'] ?></h1>
         <p class="popup-description">
-            Ceci est la description de l'annonce. Les détails seront fournis par la base de données.
+            <?php echo $data['description'] ?>
         </p>
 
         <div class="popup-actions">

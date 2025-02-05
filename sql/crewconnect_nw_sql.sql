@@ -101,7 +101,6 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user_has_category`
         REFERENCES `crewconnect`.`user` (`user_id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION,
-    CONSTRAINT `fk_user_has_category_category1`
         FOREIGN KEY (`category_category_id`, `category_domain_domain_id`)
             REFERENCES `crewconnect`.`category` (`category_id`, `domain_domain_id`)
             ON DELETE NO ACTION
@@ -157,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`Like`
 
 INSERT INTO `domain` (`domain_id`, `nom`)
 VALUES (1, 'Musique'),
-       (2, 'Cinéma'),
+       (2, 'CinÃ©ma'),
        (3, 'Sport'),
        (4, 'Lecture'),
        (5, 'Informatique'),
