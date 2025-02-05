@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             require '../view/page_accueil.php';
         } else {
             $error_message = "Adresse mail ou mot de passe incorrect";
+            require '../view/connexion.php';
         }
     }
 }

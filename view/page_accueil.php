@@ -53,7 +53,7 @@ include_once '../model/recuperer_data.php';
     </div>
     <div class="biography">
         <div class="biography-content">
-            <h2><?php echo $_SESSION['firstname'], ' ', $_SESSION['name'] ?></h2>
+            <h2><?php echo $_SESSION['prenom'], ' ', $_SESSION['nom'] ?></h2>
             <p><?php echo $_SESSION['age'], ' ans' ?></p>
             <p><?php echo $_SESSION['category'] ?></p>
             <p><?php echo $_SESSION['user_id'] ?></p>
