@@ -40,7 +40,7 @@
         </button>
     </a>
     <!-- Lien Paramètres -->
-    <a href="../index.php" class="nav-link">
+    <a href="../controler/deconnecter.php" class="nav-link">
         <button class="settings">
             <img src="https://img.icons8.com/material-outlined/24/000000/settings.png" alt="Paramètres">
             Se deconnecter

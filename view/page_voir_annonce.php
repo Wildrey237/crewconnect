@@ -31,9 +31,9 @@ verify_session();
         <?php
 
         if (user_likes_announce($_SESSION['user_id'], $_GET['id'])) {
-            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-danger">Retirer des favoris 💔</a>';
+            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-danger" style="text-decoration: none">Retirer des favoris 💔</a>';
         } else {
-            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-primary">Ajouter en favoris ❤️</a>';
+            echo '<a href="../controler/like_annonce.php?id=' . $_GET['id'] . '" class="btn btn-primary" style="text-decoration: none">Ajouter en favoris ❤️</a>';
         }
 
         ?>
@@ -67,7 +67,20 @@ verify_session();
     <div class="messages">
         <div class="messages-content">
             <h2>Messages</h2>
-            <p>Section des messages (contenu ici).</p>
+            <?php
+            $user_id = $_SESSION['user_id'];
+            $conversations = get_conversations($user_id); // Function to get users with whom the current user has had a conversation
+
+            if (empty($conversations)) {
+                echo '<p>Aucune discussion trouvée.</p>';
+            } else {
+                foreach ($conversations as $conversation) {
+                    echo '<div class="conversation">';
+                    echo '<a href="../view/send_message.php?id_user=' . $conversation['id_receveur'] . '" style="text-decoration: none" >' . htmlspecialchars($conversation['nom']) . ' 📩</a>';
+                    echo '</div>';
+                }
+            }
+            ?>
         </div>
     </div>
 </div>

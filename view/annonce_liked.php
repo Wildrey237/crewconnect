@@ -47,14 +47,15 @@ include_once '../model/recuperer_data.php';
         <div class="messages-content">
             <h2>Messages</h2>
             <?php
-            $conversations = get_conversations($user_id);
+            $user_id = $_SESSION['user_id'];
+            $conversations = get_conversations($user_id); // Function to get users with whom the current user has had a conversation
 
             if (empty($conversations)) {
                 echo '<p>Aucune discussion trouvée.</p>';
             } else {
                 foreach ($conversations as $conversation) {
                     echo '<div class="conversation">';
-                    echo '<a href="send_message.php?id_user=' . $conversation['id_receveur'] . '">' . htmlspecialchars($conversation['nom']) . '</a>';
+                    echo '<a href="../view/send_message.php?id_user=' . $conversation['id_receveur'] . '" style="text-decoration: none" >' . htmlspecialchars($conversation['nom']) . ' 📩</a>';
                     echo '</div>';
                 }
             }

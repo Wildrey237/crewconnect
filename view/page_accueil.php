@@ -56,7 +56,6 @@ include_once '../model/recuperer_data.php';
             <h2><?php echo $_SESSION['prenom'], ' ', $_SESSION['nom'] ?></h2>
             <p><?php echo $_SESSION['age'], ' ans' ?></p>
             <p><?php echo $_SESSION['category'] ?></p>
-            <p><?php echo $_SESSION['user_id'] ?></p>
         </div>
     </div>
     <div class="messages">
@@ -71,7 +70,7 @@ include_once '../model/recuperer_data.php';
             } else {
                 foreach ($conversations as $conversation) {
                     echo '<div class="conversation">';
-                    echo '<a href="../view/send_message.php?id_user=' . $conversation['id_receveur'] . '">' . htmlspecialchars($conversation['nom']) . '</a>';
+                    echo '<a href="../view/send_message.php?id_user=' . $conversation['id_receveur'] . '" style="text-decoration: none" >' . htmlspecialchars($conversation['nom']) . ' 📩</a>';
                     echo '</div>';
                 }
             }

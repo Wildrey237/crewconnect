@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user`
     `mdp`        VARCHAR(255) NULL,
     `mail`       VARCHAR(255) NOT NULL,
     PRIMARY KEY (`user_id`)
-);
+    );
 
 
 -- -----------------------------------------------------
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`announce`
     `description` VARCHAR(255) NULL,
     PRIMARY KEY (`announce_id`, `user_user_id`),
     FOREIGN KEY (`user_user_id`)
-        REFERENCES `crewconnect`.`user` (`user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
@@ -56,10 +56,10 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`message`
     `id_receveur`  INT          NOT NULL,
     PRIMARY KEY (`message_id`, `user_user_id`),
     FOREIGN KEY (`user_user_id`)
-        REFERENCES `crewconnect`.`user` (`user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`domain`
     `domain_id` INT          NOT NULL AUTO_INCREMENT,
     `nom`       VARCHAR(255) NULL,
     PRIMARY KEY (`domain_id`)
-);
+    );
 
 
 -- -----------------------------------------------------
@@ -83,10 +83,10 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`category`
     `domain_domain_id` INT          NOT NULL,
     PRIMARY KEY (`category_id`, `domain_domain_id`),
     FOREIGN KEY (`domain_domain_id`)
-        REFERENCES `crewconnect`.`domain` (`domain_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`domain` (`domain_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
@@ -99,14 +99,14 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`user_has_category`
     `category_domain_domain_id` INT NOT NULL,
     PRIMARY KEY (`user_user_id`, `category_category_id`, `category_domain_domain_id`),
     FOREIGN KEY (`user_user_id`)
-        REFERENCES `crewconnect`.`user` (`user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
-        FOREIGN KEY (`category_category_id`, `category_domain_domain_id`)
-            REFERENCES `crewconnect`.`category` (`category_id`, `domain_domain_id`)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`category_category_id`, `category_domain_domain_id`)
+    REFERENCES `crewconnect`.`category` (`category_id`, `domain_domain_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
@@ -119,10 +119,10 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`notification_announce`
     `announce_user_user_id`    INT NOT NULL,
     PRIMARY KEY (`notification_announce_id`, `announce_announce_id`, `announce_user_user_id`),
     FOREIGN KEY (`announce_announce_id`, `announce_user_user_id`)
-        REFERENCES `crewconnect`.`announce` (`announce_id`, `user_user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`announce` (`announce_id`, `user_user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
@@ -134,26 +134,26 @@ CREATE TABLE IF NOT EXISTS `crewconnect`.`notification_user`
     `user_user_id`         INT NOT NULL,
     PRIMARY KEY (`notification_user_id`, `user_user_id`),
     FOREIGN KEY (`user_user_id`)
-        REFERENCES `crewconnect`.`user` (`user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 
 -- -----------------------------------------------------
 -- Table `crewconnect`.`Like`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `crewconnect`.`Like`
+CREATE TABLE IF NOT EXISTS `crewconnect`.`like`
 (
     `idLike`                INT NOT NULL AUTO_INCREMENT,
     `announce_announce_id`  INT NOT NULL,
     `announce_user_user_id` INT NOT NULL,
     PRIMARY KEY (`idLike`, `announce_announce_id`, `announce_user_user_id`),
     FOREIGN KEY (`announce_announce_id`, `announce_user_user_id`)
-        REFERENCES `crewconnect`.`announce` (`announce_id`, `user_user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
-);
+    REFERENCES `crewconnect`.`announce` (`announce_id`, `user_user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+    );
 
 INSERT INTO `domain` (`domain_id`, `nom`)
 VALUES (1, 'Musique'),

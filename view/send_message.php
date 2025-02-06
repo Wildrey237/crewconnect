@@ -40,7 +40,7 @@ $messages = recuperer_messages($user_id);
     </div>
     <div class="search__container">
         <div class="messages-content">
-            <h2>Messagerie</h2>
+            <h1 class="text-center">Messagerie</h1><br>
             <div class="message-list">
                 <?php foreach ($messages as $message): ?>
                     <div class="message">
